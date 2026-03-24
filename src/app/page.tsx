@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScrollReveal from "@/components/layout/ScrollReveal";
 
 // Image URLs from apsara-resort.com (Wix CDN)
@@ -31,7 +32,7 @@ export default function Home() {
         {/* Centered title */}
         <div className="relative z-10 text-center text-white px-6">
           <ScrollReveal direction="none" delay={0.3}>
-            <h1 className="font-serif italic text-5xl md:text-[72px] leading-[1.15] text-white drop-shadow-sm">
+            <h1 className="font-serif italic text-5xl md:text-[52px] leading-[1.15] tracking-[2.6px] text-white drop-shadow-sm">
               Welcome to the Luxurious<br />Shores of Cambodia
             </h1>
           </ScrollReveal>
@@ -53,10 +54,10 @@ export default function Home() {
           {/* Text left */}
           <ScrollReveal direction="left" delay={0.1}>
             <div className="flex flex-col gap-6">
-              <h2 className="font-body text-3xl md:text-[38px] text-brand-blue leading-[1.3]">
+              <h2 className="font-heading text-3xl md:text-[30px] text-brand-blue leading-[1.1] tracking-[1.5px]">
                 The Beachside Apsara Resort is a refined retreat blending glamorous lifestyle with the beauty of nature.
               </h2>
-              <p className="font-body text-[16px] text-brand-blue/70 leading-[30px]">
+              <p className="font-body text-[16px] text-brand-blue/70 leading-[30px] tracking-[0.8px]">
                 Nestled on the elegant shores of Coconut Beach, our luxurious apartments unveil exquisite interiors and the raw allure of tropical paradise. Indulge in the island's secret charm.
               </p>
             </div>
@@ -78,12 +79,12 @@ export default function Home() {
           {/* Text left */}
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <h2 className="font-body text-4xl md:text-[52px] text-brand-blue leading-[1.1]">
+              <h2 className="font-heading text-4xl md:text-[50px] text-brand-blue leading-[60px] tracking-[5px]">
                 Stay With Us
               </h2>
             </ScrollReveal>
             <ScrollReveal direction="left" delay={0.2}>
-              <p className="font-body text-[16px] text-brand-blue/80 leading-[30px]">
+              <p className="font-body text-[16px] text-brand-blue/80 leading-[30px] tracking-[1.6px]">
                 Embracing the Apsara experience means slowing down and savoring life by the ocean. With glamorous interiors, stunning views, and refined comfort, our Suites offer effortless elegance just steps from the resort's vibrant heart.
               </p>
             </ScrollReveal>
@@ -135,19 +136,18 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/10" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
               <h3 className="font-body text-white text-xl tracking-widest uppercase drop-shadow">SPA &amp; Wellness Centrum</h3>
-              <a
-                href="https://www.apsara-resort.com/spa"
-                target="_blank"
+              <Link
+                href="/spa"
                 className="border border-white text-white text-[11px] tracking-widest uppercase px-6 py-2 hover:bg-white hover:text-brand-blue transition-all duration-300"
               >
                 SPA Menu
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
 
           {/* Col 3: Services & Facilities text */}
           <ScrollReveal direction="right" delay={0.3} className="flex flex-col gap-6 pt-4">
-            <h2 className="font-body text-3xl md:text-[36px] text-brand-blue leading-[1.2]">
+            <h2 className="font-serif italic text-3xl md:text-[46px] text-brand-blue leading-[1.2] tracking-[2.3px]">
               Services &amp; Facilities
             </h2>
             <p className="font-body text-[15px] text-brand-blue/75 leading-[28px]">
@@ -161,7 +161,7 @@ export default function Home() {
       <section className="w-full py-20 px-8 md:px-20 bg-white border-t border-brand-muted/30">
         <div className="max-w-[900px] mx-auto text-center flex flex-col items-center gap-6">
           <ScrollReveal direction="up" delay={0.1}>
-            <p className="font-body text-[18px] md:text-[22px] text-brand-blue leading-[1.4]">
+            <p className="font-heading text-[18px] md:text-[32px] text-brand-blue leading-[1.4] tracking-[1.6px]">
               Apsara Resort provides a wide array of luxurious services designed for ultimate relaxation and adventure
             </p>
           </ScrollReveal>
@@ -181,13 +181,12 @@ export default function Home() {
             </ul>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.25}>
-            <a
-              href="https://www.apsara-resort.com/services-and-facilities"
-              target="_blank"
+            <Link
+              href="/services-and-facilities"
               className="inline-block border border-brand-blue px-10 py-3 text-[11px] tracking-widest uppercase font-body hover:bg-brand-blue hover:text-white transition-all duration-300 mt-4"
             >
               Learn more
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
@@ -202,7 +201,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 text-center">
           <ScrollReveal direction="up" delay={0.1}>
-            <span className="font-serif italic text-2xl text-white block drop-shadow">You deserve this</span>
+            <span className="font-serif italic text-[38px] tracking-[5.7px] text-white block drop-shadow">You deserve this</span>
           </ScrollReveal>
         </div>
       </section>
@@ -222,7 +221,7 @@ export default function Home() {
           {/* Text right */}
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="right" delay={0.1}>
-              <h2 className="font-body text-3xl md:text-[44px] text-brand-blue leading-[1.2]">
+              <h2 className="font-heading font-bold text-xl md:text-[24px] text-brand-blue leading-[1.2] tracking-[2.4px]">
                 Choose Your Apsara Suite
               </h2>
             </ScrollReveal>
@@ -247,13 +246,12 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.3}>
-              <a
-                href="https://www.apsara-resort.com/accommodations"
-                target="_blank"
+              <Link
+                href="/accommodations"
                 className="inline-block bg-brand-blue text-white px-10 py-4 text-[11px] tracking-widest uppercase font-body hover:opacity-80 transition-opacity w-fit"
               >
                 RESERVE
-              </a>
+              </Link>
             </ScrollReveal>
           </div>
         </div>
@@ -265,7 +263,7 @@ export default function Home() {
           {/* Text left */}
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <h2 className="font-body text-3xl md:text-[44px] text-white uppercase tracking-widest leading-[1.2]">
+              <h2 className="font-heading text-2xl md:text-[31px] text-white uppercase tracking-[4.65px] leading-[1.2]">
                 The Khmer Culture
               </h2>
             </ScrollReveal>
@@ -280,13 +278,12 @@ export default function Home() {
               </p>
             </ScrollReveal>
             <ScrollReveal direction="left" delay={0.3}>
-              <a
-                href="https://www.apsara-resort.com/khmer-culture"
-                target="_blank"
+              <Link
+                href="/khmer-culture"
                 className="inline-block border border-white/60 px-10 py-3 text-[11px] tracking-widest uppercase font-body text-white hover:bg-white hover:text-brand-blue transition-all duration-300 w-fit"
               >
                 Learn more
-              </a>
+              </Link>
             </ScrollReveal>
             <ScrollReveal direction="left" delay={0.35}>
               <p className="font-body text-[14px] text-white/60 leading-[26px] mt-4 italic">
@@ -318,7 +315,7 @@ export default function Home() {
 
         <div className="relative z-10 py-32 px-8 md:px-20 max-w-[900px] mx-auto text-center flex flex-col items-center gap-8">
           <ScrollReveal direction="up" delay={0.1}>
-            <h2 className="font-body text-3xl md:text-[44px] text-white leading-[1.3]">
+            <h2 className="font-heading text-2xl md:text-[33px] text-white leading-[1.3] tracking-[1.65px]">
               Experience our exquisite quality and the beauty of nature.
             </h2>
           </ScrollReveal>
@@ -341,7 +338,7 @@ export default function Home() {
           {/* Text left */}
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <h2 className="font-body text-3xl md:text-[44px] text-white leading-[1.2]">
+              <h2 className="font-serif italic text-3xl md:text-[46px] text-white leading-[1.2] tracking-[2.3px]">
                 The Apsara Club Membership
               </h2>
             </ScrollReveal>

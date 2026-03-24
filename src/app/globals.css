@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'futura-lt-w01-book';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.parastorage.com/fonts/v2/8e5b5cbc-6ad9-49f7-aee7-4e5133c3ee4d/v1/futura-lt-w01-book.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'futura-lt-w01-light';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.parastorage.com/fonts/v2/8e5b5cbc-6ad9-49f7-aee7-4e5133c3ee4d/v1/futura-lt-w01-light.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'avenir-light';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.parastorage.com/fonts/v2/af36905f-3c92-4ef9-b0c1-f91432f16ac1/v1/avenir-lt-w01_35-light1475496.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'avenir-heavy';
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://static.parastorage.com/fonts/v2/74290729-59ae-4129-87d0-2eec3974dce1/v1/avenir-lt-w01_85-heavy1475544.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'helvetica-w01';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.parastorage.com/fonts/v2/2af1bf48-e783-4da8-9fa0-599dde29f2d5/v1/helvetica-w01-roman.woff2") format("woff2");
+  font-display: swap;
+}
+
 @theme {
   --color-brand-blue: #0C112C;
   --color-brand-sand: #EEEBE6;
@@ -11,21 +51,50 @@
 
   --font-heading: "futura-lt-w01-book", "Futura", sans-serif;
   --font-body: "futura-lt-w01-light", "Futura", sans-serif;
-  --font-serif: "eb garamond", serif;
+  --font-serif: var(--font-serif);
+  --font-avenir-light: "avenir-light", "Avenir", sans-serif;
+  --font-avenir-heavy: "avenir-heavy", "Avenir", sans-serif;
 
   --background: var(--color-brand-sand);
   --foreground: var(--color-brand-blue);
 }
 
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @layer base {
+  @font-face {
+    font-family: "futura-lt-w01-book";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://static.parastorage.com/fonts/v2/790166f1-b347-4f16-8a29-f0c4931a7c35/v1/futura-lt-w01-book.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "futura-lt-w01-light";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://static.parastorage.com/fonts/v2/8e5b5cbc-6ad9-49f7-aee7-4e5133c3ee4d/v1/futura-lt-w05-light.woff2") format("woff2");
+    font-display: swap;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-body;
+    font-family: var(--font-body);
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-brand-blue font-normal;
+    font-family: var(--font-heading);
+    color: var(--color-brand-blue);
+    font-weight: 400;
   }
 }
 
