@@ -25,12 +25,17 @@ export default function Header() {
             <span>Menu</span>
           </button>
 
-          {/* Center Logo */}
+          {/* Center Logo — badge on mobile, full script on desktop */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+            <img
+              src="https://static.wixstatic.com/media/26781c_737fdf14ee8344929de1782f95809188~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/26781c_737fdf14ee8344929de1782f95809188~mv2.png"
+              alt="Apsara Resort"
+              className="h-[50px] w-auto object-contain md:hidden"
+            />
             <img
               src="https://static.wixstatic.com/media/26781c_d1fdfd96c6c04b46b829dcd44b777110~mv2.png/v1/crop/x_0,y_0,w_6113,h_1552/fill/w_484,h_122,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/26781c_d1fdfd96c6c04b46b829dcd44b777110~mv2.png"
               alt="Apsara Resort"
-              className="h-[50px] w-auto object-contain"
+              className="h-[50px] w-auto object-contain hidden md:block"
             />
           </Link>
 

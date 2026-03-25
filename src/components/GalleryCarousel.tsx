@@ -13,13 +13,15 @@ export default function GalleryCarousel({ images }: GalleryCarouselProps) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 2);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
-  }, []);
+    if (el.scrollLeft > 10 && !hasInteracted) setHasInteracted(true);
+  }, [hasInteracted]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -43,6 +45,7 @@ export default function GalleryCarousel({ images }: GalleryCarouselProps) {
       <div
         ref={scrollRef}
         onScroll={updateScrollState}
+        onTouchStart={() => setHasInteracted(true)}
         className="flex overflow-x-auto gap-[3px] scrollbar-hide"
         style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
@@ -66,6 +69,54 @@ export default function GalleryCarousel({ images }: GalleryCarouselProps) {
           </motion.button>
         ))}
       </div>
+
+      {/* Right fade gradient (mobile only, visible when more content to scroll) */}
+      <div
+        className={`md:hidden absolute right-0 top-0 bottom-0 w-16 pointer-events-none transition-opacity duration-300 ${
+          canScrollRight ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ background: "linear-gradient(to right, transparent, rgba(0,0,0,0.25))" }}
+      />
+
+      {/* Left fade gradient (mobile only, visible when scrolled) */}
+      <div
+        className={`md:hidden absolute left-0 top-0 bottom-0 w-16 pointer-events-none transition-opacity duration-300 ${
+          canScrollLeft ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ background: "linear-gradient(to left, transparent, rgba(0,0,0,0.25))" }}
+      />
+
+      {/* Swipe hint (mobile only, disappears after first interaction) */}
+      <AnimatePresence>
+        {!hasInteracted && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.4 }}
+            className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2"
+          >
+            <motion.svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              animate={{ x: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <path d="M5 12h14" />
+              <path d="M12 5l7 7-7 7" />
+            </motion.svg>
+            <span className="text-white/90 text-[11px] tracking-wider uppercase font-body">
+              Swipe to explore
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Left arrow */}
       <button

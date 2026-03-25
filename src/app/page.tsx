@@ -21,13 +21,14 @@ export default function Home() {
     <div className="flex flex-col w-full overflow-hidden">
 
       {/* ── 1. HERO ── */}
-      <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: `url('${IMAGES.heroBg}')` }}
-        >
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
+      <section className="relative w-full h-[70vh] md:h-screen min-h-[400px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Hero image — no bg-fixed on mobile (broken on iOS) */}
+        <img
+          src={IMAGES.heroBg}
+          alt="Apsara Resort pool view"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/10" />
 
         {/* Centered title */}
         <div className="relative z-10 text-center text-white px-6">
@@ -67,7 +68,7 @@ export default function Home() {
             <img
               src={IMAGES.introSunset}
               alt="Apsara Resort sunset view"
-              className="w-full max-w-[420px] ml-auto h-auto object-cover shadow-md"
+              className="w-full lg:max-w-[420px] mx-auto lg:mx-0 lg:ml-auto h-auto object-cover shadow-md"
             />
           </ScrollReveal>
         </div>
@@ -99,11 +100,11 @@ export default function Home() {
             </ScrollReveal>
           </div>
           {/* Image right */}
-          <ScrollReveal direction="zoom" delay={0.2}>
+          <ScrollReveal direction="zoom" delay={0.2} className="-mx-8 lg:mx-0">
             <img
               src={IMAGES.stayWithUs}
               alt="Infinity pool with Apsara statue"
-              className="w-full h-auto object-cover shadow-xl"
+              className="w-full h-auto object-cover shadow-xl lg:shadow-xl shadow-none"
             />
           </ScrollReveal>
         </div>
@@ -146,7 +147,7 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Col 3: Services & Facilities text */}
-          <ScrollReveal direction="right" delay={0.3} className="flex flex-col gap-6 pt-4">
+          <ScrollReveal direction="right" delay={0.3} className="flex flex-col gap-6 pt-4 order-first md:order-last">
             <h2 className="font-serif italic text-3xl md:text-[46px] text-brand-blue leading-[1.2] tracking-[2.3px]">
               Services &amp; Facilities
             </h2>
