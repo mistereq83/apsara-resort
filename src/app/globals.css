@@ -67,6 +67,13 @@
   }
 }
 
+/* iOS Safari does not support background-attachment: fixed — it causes broken zoom/scroll */
+@supports (-webkit-touch-callout: none) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+}
+
 @layer base {
   @font-face {
     font-family: "futura-lt-w01-book";
